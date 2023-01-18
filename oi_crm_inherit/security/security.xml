@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="group_front_desk" model="res.groups">
+		<field name="name">Front Desk-Welcome Form</field>		
+	</record>
+
+	<record id="group_ec_designer" model="res.groups">
+		<field name="name">EC Designer-Design Form,Client Sign-off,Advance Received</field>		
+	</record>
+
+	<record id="group_ho_lead_designer" model="res.groups">
+		<field name="name">HO Lead designer-Design Proposal</field>		
+	</record>
+
+	<record id="group_installation_manager" model="res.groups">
+		<field name="name">Installation Manager-Measurement,Final Measurement,Masking,Installation,Installation QC,Client Hand OVer</field>		
+	</record>
+
+	<record id="group_costing_manager" model="res.groups">
+		<field name="name">Costing Manager-Quotation</field>		
+	</record>
+
+	<record id="group_production_manager" model="res.groups">
+		<field name="name">Production Manager-Production,Production QC</field>		
+	</record>
+
+</odoo>

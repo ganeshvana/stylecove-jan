@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_design_form_user,access_design_form_user,model_design_form,base.group_user,1,1,1,1
+access_design_proposal_user,access_design_proposal_user,model_design_proposal,base.group_user,1,1,1,1
+access_measurement_user,access_measurement_user,model_measurement,base.group_user,1,1,1,1
+access_quotation_user,access_quotation_user,model_quotation,base.group_user,1,1,1,1
+access_client_sign_user,access_client_sign_user,model_client_sign,base.group_user,1,1,1,1
+access_advance_received_user,access_advance_received_user,model_advance_received,base.group_user,1,1,1,1
+access_final_measurement_user,access_final_measurement_user,model_final_measurement,base.group_user,1,1,1,1
+access_masking_user,access_masking_user,model_masking,base.group_user,1,1,1,1
+access_production_user,access_production_user,model_production,base.group_user,1,1,1,1
+access_production_qc_user,access_production_qc_user,model_production_qc,base.group_user,1,1,1,1
+access_installation_user,access_installation_user,model_installation,base.group_user,1,1,1,1
+access_installation_qc_user,access_installation_qc_user,model_installation_qc,base.group_user,1,1,1,1
+access_client_handover_user,access_client_handover_user,model_client_handover,base.group_user,1,1,1,

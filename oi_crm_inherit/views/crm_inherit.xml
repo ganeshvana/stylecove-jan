@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     
+        <record model="ir.ui.view" id="crm_lead_form_inherited_for_inherited">
+                <field name="name">crm.lead.form.view</field>
+                <field name="model">crm.lead</field>
+                <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+                <field name="arch" type="xml">
+
+                     <xpath expr="//field[@name='stage_id']" position="attributes">
+                         <attribute name="invisible">1</attribute>
+                     </xpath>
+ 
+                     <xpath expr="//field[@name='stage_id']" position="after">
+                        <field name="stage" widget="statusbar" clickable="True" statusbar_visible="new,requirement_gathering,design,measurement,quotation,client_sign-off,advanced_received,final_measurement,masking,production,production_qc,installation,installation_qc,client_hand_over"/>
+                      
+                    </xpath>
+
+
+                   <field name="tag_ids" position="after">
+
+                    <field name="ec_designer"/>
+                    <field name="project_tracker"/>
+                    <field name="ho_designer"/>
+                    <field name="ho_lead_designer"/>
+                    <field name="costing_manager"/>
+                    <field name="installation_manager"/>
+                    <field name="production_manager"/>
+                
+                  </field>
+                   <xpath expr="//page[@name='lead']" position="attributes">    
+                    <attribute name="string">Welcome Form</attribute>
+                   </xpath>
+                    <xpath expr="//page[@name='lead']" position="attributes">    
+                    <attribute name="groups">oi_crm_inherit.group_front_desk</attribute>
+                   </xpath>
+
+                  <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='website']" position="after">
+
+                  <field name="end_to_end"/>
+
+                  </xpath>  
+
+                  <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='campaign_id']" position="before">
+
+                  <field name="team_id"/>
+
+                  </xpath>               
+
+                  <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/div[2]" position="after">
+
+                  <field name="site_location"/>
+                  <field name="property_type"/>
+                  <field name="property_remark"/>
+                  <field name="no_of_bhk" string="No. of BHK"/>
+                  <field name="bhk_remarks"/>
+                  <field name="no_of_persons"/>
+                  <field name="carpet_area_sqft"/>
+                  <field name="status_of_property"/>
+                  <field name="site_readiness_date"/>
+                  <field name="interior_handover_date"/>
+                  <field name="site_condition"/>
+
+                  </xpath>
+
+                   <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group[@name='Misc']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                  </xpath>
+                   <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group[@name='Misc']" position="after">
+                    <group>
+                            <group string="SCOPE OF WORK" name="scope of work">
+                                 <field name="end_to_end_1"/>
+                                 <field name="selected_rooms"/>
+                                 <field name="foyer"/>
+                                 <field name="living"/>
+                                 <field name="formal_family_room"/>
+                                 <field name="kitchen"/>
+                                 <field name="dining"/>
+                                 <field name="crockery"/>
+                                 <field name="bedrooms"/>
+                                 <field name="vanity"/>
+                                 <field name="toilet_vanity"/>
+                                 <field name="devotional_place"/>
+                                 <field name="study"/>
+                                 <field name="balcony"/>
+                                 <field name="utility"/>
+                                 <field name="store_room"/>
+                                 <field name="understairs_storage"/>
+                                 <field name="remarks"/>
+
+                            </group>
+                        </group>
+                    </xpath>
+       
+           <xpath expr="//notebook/page[@name='lead']" position="after">
+            <page string="Design Form" name="design_form" groups="oi_crm_inherit.group_ec_designer">
+                <group>
+                    <group>
+                        <field name="attachment"/>
+                        <field name="floor_plan"/>
+                    </group> 
+                    <group>
+                       <field name="site_photos"/>
+                    </group>
+                     <field name="crm_lead_line_b7314">
+                       <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>              
+                        </field>
+                    </group> 
+            </page>
+        </xpath>
+        <xpath expr="//notebook/page[@name='design_form']" position="after">
+            <page string="Design Proposal" name="design_proposal" groups="oi_crm_inherit.group_ho_lead_designer">
+
+                <group>
+                <field name="crm_lead_line_ids_cbf1f">
+                          
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>                    
+                </field>
+            </group>
+                 
+            </page>
+        </xpath>
+         <xpath expr="//notebook/page[@name='design_proposal']" position="after">
+            <page string="Measurement" name="measurement" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+                <field name="crm_lead_line_ids_520c7">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>       
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='measurement']" position="after">
+            <page string="Quotation" name="quotation" groups="oi_crm_inherit.group_costing_manager">
+                <group>
+               <field name="crm_lead_line_ids_842ea">
+                       <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='quotation']" position="after">
+            <page string="Client sign-off" name="client" groups="oi_crm_inherit.group_ec_designer">
+                <group>
+                     <field name="crm_lead_line_ids_9af76">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+                </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='client']" position="after">
+            <page string="Advanced Received" name="advanced_received" groups="oi_crm_inherit.group_ec_designer">
+                <group>
+                 <field name="crm_lead_line_ids_2152b">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='advanced_received']" position="after">
+            <page string="Final Measurement" name="final_measurement" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+                  <field name="crm_lead_line_ids_88a0c">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='final_measurement']" position="after">
+            <page string="Masking" name="masking" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+               <field name="crm_lead_line_ids_50186">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='masking']" position="after">
+            <page string="Production" name="production" groups="oi_crm_inherit.group_production_manager">
+                <group>
+                <field name="crm_lead_line_ids_766d1">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='production']" position="after">
+            <page string="Production QC" name="production_qc" groups="oi_crm_inherit.group_production_manager">
+                <group>
+                 <field name="crm_lead_line_ids_1918b">
+                       <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='production_qc']" position="after">
+            <page string="Installation" name="installation" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+                 <field name="crm_lead_line_ids_ded5a">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+          <xpath expr="//notebook/page[@name='installation']" position="after">
+            <page string="Installation QC" name="installation_qc" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+                <field name="crm_lead_line_ids_f55f9">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+        </xpath>
+         <xpath expr="//notebook/page[@name='installation_qc']" position="after">
+            <page string="Client Hand Over" name="client_hand_over" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+                    <field name="crm_lead_line_ids_41b7f">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+                </group>
+            </page>
+        </xpath>
+
+                  </field>
+
+
+        </record>
+
+    
+
+      
+
+</odoo>
