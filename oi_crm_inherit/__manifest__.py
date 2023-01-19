@@ -7,7 +7,7 @@
     'version': '16.0',
     'author': 'oodu implementers ',
     'description': """""",
-    'depends': ['base','crm','hr'],
+    'depends': ['base','crm','hr','branch'],
     'application': True,
     'data': [
         'security/ir.model.access.csv',

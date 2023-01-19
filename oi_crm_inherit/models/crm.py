@@ -13,6 +13,7 @@ class CRM(models.Model):
     costing_manager = fields.Many2one('res.users',"Costing Manager")
     installation_manager = fields.Many2one('res.users',"Installation Manager")
     production_manager = fields.Many2one('res.users',"Production Manager")
+    branch_id = fields.Many2one('res.branch', string="Branch")
     end_to_end = fields.Boolean("End to End",copy=False)
     team_id = fields.Many2one('crm.team', "Sales Team")
     site_location = fields.Char("Site Location",copy=False)
@@ -61,6 +62,15 @@ class CRM(models.Model):
     crm_lead_line_ids_f55f9 = fields.One2many('installation.qc','installation_qc_id',string="Attachment")
     crm_lead_line_ids_41b7f = fields.One2many('client.handover','client_handover_id',string="Attachment")
 
+
+    @api.model
+    def default_get(self, default_fields):
+        res = super(CRM, self).default_get(default_fields)
+        if self.env.user.branch_id:
+            res.update({
+                'branch_id' : self.env.user.branch_id.id or False
+            })
+        return res
 
     stage = fields.Selection([
         ('new','NEW'),

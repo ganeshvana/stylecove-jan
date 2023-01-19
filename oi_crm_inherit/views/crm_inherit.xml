@@ -35,6 +35,18 @@
                     <attribute name="groups">oi_crm_inherit.group_front_desk</attribute>
                    </xpath>
 
+                  <xpath expr="//form/sheet/group/group/div[2]" position="after">
+
+                  <field name="branch_id"/>
+
+                  </xpath>
+
+                  <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='website']" position="after">
+
+                  <field name="end_to_end"/>
+
+                  </xpath> 
+
                   <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='website']" position="after">
 
                   <field name="end_to_end"/>
@@ -94,14 +106,7 @@
        
            <xpath expr="//notebook/page[@name='lead']" position="after">
             <page string="Design Form" name="design_form" groups="oi_crm_inherit.group_ec_designer">
-                <group>
-                    <group>
-                        <field name="attachment"/>
-                        <field name="floor_plan"/>
-                    </group> 
-                    <group>
-                       <field name="site_photos"/>
-                    </group>
+                
                      <field name="crm_lead_line_b7314">
                        <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
@@ -109,12 +114,10 @@
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
                         </tree>              
-                        </field>
-                    </group> 
+                     </field>
+                     
             </page>
-        </xpath>
-        <xpath expr="//notebook/page[@name='design_form']" position="after">
-            <page string="Design Proposal" name="design_proposal" groups="oi_crm_inherit.group_ho_lead_designer">
+             <page string="Design Proposal" name="design_proposal" groups="oi_crm_inherit.group_ho_lead_designer">
 
                 <group>
                 <field name="crm_lead_line_ids_cbf1f">
@@ -129,9 +132,7 @@
             </group>
                  
             </page>
-        </xpath>
-         <xpath expr="//notebook/page[@name='design_proposal']" position="after">
-            <page string="Measurement" name="measurement" groups="oi_crm_inherit.group_installation_manager">
+             <page string="Measurement" name="measurement" groups="oi_crm_inherit.group_installation_manager">
                 <group>
                 <field name="crm_lead_line_ids_520c7">
                         <tree editable="top">
@@ -143,9 +144,7 @@
                 </field>
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='measurement']" position="after">
-            <page string="Quotation" name="quotation" groups="oi_crm_inherit.group_costing_manager">
+             <page string="Quotation" name="quotation" groups="oi_crm_inherit.group_costing_manager">
                 <group>
                <field name="crm_lead_line_ids_842ea">
                        <tree editable="top">
@@ -157,8 +156,6 @@
                 </field>
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='quotation']" position="after">
             <page string="Client sign-off" name="client" groups="oi_crm_inherit.group_ec_designer">
                 <group>
                      <field name="crm_lead_line_ids_9af76">
@@ -171,8 +168,6 @@
                 </field>
                 </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='client']" position="after">
             <page string="Advanced Received" name="advanced_received" groups="oi_crm_inherit.group_ec_designer">
                 <group>
                  <field name="crm_lead_line_ids_2152b">
@@ -185,9 +180,7 @@
                 </field>
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='advanced_received']" position="after">
-            <page string="Final Measurement" name="final_measurement" groups="oi_crm_inherit.group_installation_manager">
+             <page string="Final Measurement" name="final_measurement" groups="oi_crm_inherit.group_installation_manager">
                 <group>
                   <field name="crm_lead_line_ids_88a0c">
                         <tree editable="top">
@@ -200,8 +193,23 @@
             </group>
             </page>
         </xpath>
-          <xpath expr="//notebook/page[@name='final_measurement']" position="after">
-            <page string="Masking" name="masking" groups="oi_crm_inherit.group_installation_manager">
+
+
+        <xpath expr="//form/sheet/notebook" position="after">
+            <notebook>
+                <page string="Installation QC" name="installation_qc" groups="oi_crm_inherit.group_installation_manager">
+                <group>
+                <field name="crm_lead_line_ids_f55f9">
+                        <tree editable="top">
+                        <field name="file2" filename="filename" required="1"/>
+                        <field name="download" readonly="1"/>
+                        <field name="filename" required="1"/>
+                        <field name="name" required="1"/>
+                        </tree>  
+                </field>
+            </group>
+            </page>
+              <page string="Masking" name="masking" groups="oi_crm_inherit.group_installation_manager">
                 <group>
                <field name="crm_lead_line_ids_50186">
                         <tree editable="top">
@@ -213,8 +221,6 @@
                 </field>
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='masking']" position="after">
             <page string="Production" name="production" groups="oi_crm_inherit.group_production_manager">
                 <group>
                 <field name="crm_lead_line_ids_766d1">
@@ -224,12 +230,10 @@
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
                         </tree>  
-                </field>
+                </field>               
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='production']" position="after">
-            <page string="Production QC" name="production_qc" groups="oi_crm_inherit.group_production_manager">
+             <page string="Production QC" name="production_qc" groups="oi_crm_inherit.group_production_manager">
                 <group>
                  <field name="crm_lead_line_ids_1918b">
                        <tree editable="top">
@@ -241,8 +245,6 @@
                 </field>
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='production_qc']" position="after">
             <page string="Installation" name="installation" groups="oi_crm_inherit.group_installation_manager">
                 <group>
                  <field name="crm_lead_line_ids_ded5a">
@@ -255,8 +257,6 @@
                 </field>
             </group>
             </page>
-        </xpath>
-          <xpath expr="//notebook/page[@name='installation']" position="after">
             <page string="Installation QC" name="installation_qc" groups="oi_crm_inherit.group_installation_manager">
                 <group>
                 <field name="crm_lead_line_ids_f55f9">
@@ -269,8 +269,6 @@
                 </field>
             </group>
             </page>
-        </xpath>
-         <xpath expr="//notebook/page[@name='installation_qc']" position="after">
             <page string="Client Hand Over" name="client_hand_over" groups="oi_crm_inherit.group_installation_manager">
                 <group>
                     <field name="crm_lead_line_ids_41b7f">
@@ -283,9 +281,9 @@
                 </field>
                 </group>
             </page>
+        </notebook>
         </xpath>
-
-                  </field>
+        </field>
 
 
         </record>
