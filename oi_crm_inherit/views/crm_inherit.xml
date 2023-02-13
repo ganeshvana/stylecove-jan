@@ -7,14 +7,14 @@
                 <field name="inherit_id" ref="crm.crm_lead_view_form"/>
                 <field name="arch" type="xml">
 
-                     <xpath expr="//field[@name='stage_id']" position="attributes">
+                    <!--  <xpath expr="//field[@name='stage_id']" position="attributes">
                          <attribute name="invisible">1</attribute>
-                     </xpath>
+                     </xpath> -->
  
-                     <xpath expr="//field[@name='stage_id']" position="after">
-                        <field name="stage" widget="statusbar" clickable="True" statusbar_visible="new,requirement_gathering,design,measurement,quotation,client_sign-off,advanced_received,final_measurement,masking,production,production_qc,installation,installation_qc,client_hand_over"/>
+                     <!-- <xpath expr="//field[@name='stage_id']" position="after">
+                        <field name="stage" widget="statusbar" clickable="True"/>
                       
-                    </xpath>
+                    </xpath> -->
 
 
                    <field name="tag_ids" position="after">
@@ -47,11 +47,11 @@
 
                   </xpath> 
 
-                  <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='website']" position="after">
+                  <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='website']" position="replace">
 
-                  <field name="end_to_end"/>
+                  <field name="website"/>
 
-                  </xpath>  
+                  </xpath> 
 
                   <xpath expr="//form/sheet/notebook/page[@name='lead']/group/group/field[@name='campaign_id']" position="before">
 
@@ -98,6 +98,8 @@
                                  <field name="utility"/>
                                  <field name="store_room"/>
                                  <field name="understairs_storage"/>
+                                 <field name="wardrobe"/>
+                                 <field name="tv_unit"/>
                                  <field name="remarks"/>
 
                             </group>
@@ -109,88 +111,102 @@
                 
                      <field name="crm_lead_line_b7314">
                        <tree editable="top">
-                        <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
-                        <field name="filename" required="1"/>
-                        <field name="name" required="1"/>
+                        <field name="file2" filename="filename" required="1" tracking="true"/>
+                        <!-- <field name="download" readonly="1"/> -->
+                        <field name="filename" required="1" tracking="true"/>
+                        <field name="name" required="1" tracking="true"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>              
                      </field>
                      
             </page>
              <page string="Design Proposal" name="design_proposal" groups="oi_crm_inherit.group_ho_lead_designer">
 
-                <group>
+                
                 <field name="crm_lead_line_ids_cbf1f">
                           
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                         <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>                    
                 </field>
-            </group>
+           
                  
             </page>
-             <page string="Measurement" name="measurement" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+             <page string="Measurement" name="measurement" groups="oi_crm_inherit.group_installation_manager_1">
+               
                 <field name="crm_lead_line_ids_520c7">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>       
                 </field>
-            </group>
+           
             </page>
              <page string="Quotation" name="quotation" groups="oi_crm_inherit.group_costing_manager">
-                <group>
+                
                <field name="crm_lead_line_ids_842ea">
                        <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                         <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+           
             </page>
             <page string="Client sign-off" name="client" groups="oi_crm_inherit.group_ec_designer">
-                <group>
+                
                      <field name="crm_lead_line_ids_9af76">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-                </group>
+              
             </page>
             <page string="Advanced Received" name="advanced_received" groups="oi_crm_inherit.group_ec_designer">
-                <group>
+               
                  <field name="crm_lead_line_ids_2152b">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                         <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+         
             </page>
-             <page string="Final Measurement" name="final_measurement" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+             <page string="Final Measurement" name="final_measurement" groups="oi_crm_inherit.group_installation_manager_1">
+                
                   <field name="crm_lead_line_ids_88a0c">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
-                        </tree>  
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
+                    </tree>
                 </field>
-            </group>
+          
             </page>
         </xpath>
 
@@ -198,98 +214,179 @@
         <xpath expr="//form/sheet/notebook" position="after">
             <notebook>
                 <page string="Installation QC" name="installation_qc" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+                
                 <field name="crm_lead_line_ids_f55f9">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+          
             </page>
-              <page string="Masking" name="masking" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+              <page string="Masking" name="masking" groups="oi_crm_inherit.group_installation_manager_1">
+                
                <field name="crm_lead_line_ids_50186">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+         
             </page>
             <page string="Production" name="production" groups="oi_crm_inherit.group_production_manager">
-                <group>
+                
                 <field name="crm_lead_line_ids_766d1">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                         <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>               
-            </group>
+           
             </page>
              <page string="Production QC" name="production_qc" groups="oi_crm_inherit.group_production_manager">
-                <group>
+               
                  <field name="crm_lead_line_ids_1918b">
                        <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                         <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+            
             </page>
-            <page string="Installation" name="installation" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+            <page string="Installation" name="installation" groups="oi_crm_inherit.group_installation_manager_2">
+               
                  <field name="crm_lead_line_ids_ded5a">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                         <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+            
             </page>
-            <page string="Installation QC" name="installation_qc" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+            <page string="Installation QC" name="installation_qc" groups="oi_crm_inherit.group_installation_manager_2">
+          
                 <field name="crm_lead_line_ids_f55f9">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-            </group>
+            
             </page>
-            <page string="Client Hand Over" name="client_hand_over" groups="oi_crm_inherit.group_installation_manager">
-                <group>
+            <page string="Client Hand Over" name="client_hand_over" groups="oi_crm_inherit.group_installation_manager_2">
+               
                     <field name="crm_lead_line_ids_41b7f">
                         <tree editable="top">
                         <field name="file2" filename="filename" required="1"/>
-                        <field name="download" readonly="1"/>
+                        <!-- <field name="download" readonly="1"/> -->
                         <field name="filename" required="1"/>
                         <field name="name" required="1"/>
+                        <field name="write_uid" optional="hide" readonly="1" tracking="true" string="Uploaded By"/>
+                        <field name="write_date" optional="hide" readonly="1" tracking="true" string="Updated On"/>
                         </tree>  
                 </field>
-                </group>
+               
             </page>
         </notebook>
         </xpath>
+
+        <xpath expr="//field[@name='expected_revenue']" position="replace">
+
+            <field name="expected_revenue" tracking="True"/>
+
+        </xpath>
+
+         <xpath expr="//field[@name='probability']" position="replace">
+
+            <field name="probability" tracking="True"/>
+
+        </xpath>
+
+         <xpath expr="//field[@name='date_deadline']" position="replace">
+
+            <field name="date_deadline" tracking="True"/>
+
+        </xpath>
+
+
+        <xpath expr="//field[@name='tag_ids']" position="replace">
+
+             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" tracking="True"/>
+
+
+        </xpath>
+
+        <xpath expr="//notebook/page[@name='internal_notes']/field[@name='description']" position="replace">
+
+             <field name="description" placeholder="Add a description..." options="{'collaborative': true}" tracking="True"/>
+
+        </xpath>
+
+         <xpath expr="//field[@name='priority']" position="replace">
+
+            <field name="priority"  widget="priority" tracking="True"/>
+
+        </xpath>
+        <xpath expr="//field[@name='partner_name']" position="replace">
+
+            <field name="partner_name" tracking="True"/>
+
+        </xpath>
+       <xpath expr="//label[@for='street_page_lead']" position="replace">
+                
+                  <label for="street_page_lead" string="Address" tracking="True"/>
+                   <!--   <div class="o_address_format">
+                     <field name="street" id="street_page_lead" placeholder="Street..." class="o_address_street"/>
+                     <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                     <field name="city" placeholder="City" class="o_address_city"/>
+                     <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                     <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                     <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                     </div> -->
+                    
+            </xpath>
+
+            <xpath expr="//field[@name='title']" position="replace">
+                <field name="title" placeholder="Title" domain="[]" options='{"no_open": True}' tracking="True"/>
+
+            </xpath>
+
+            <xpath expr="//field[@name='mobile']" position="replace">
+
+            <field name="mobile"  widget="priority" tracking="True"/>
+
+             </xpath>
+
+
+
+
         </field>
 
 
         </record>
-
-    
-
-      
 
 </odoo>
